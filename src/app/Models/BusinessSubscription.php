@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class BusinessSubscription extends Model
+{
+    protected $fillable = ['business_id', 'subscription_plan_id', 'start_date', 'end_date', 'status'];
+
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+    ];
+
+    public function business(): BelongsTo
+    {
+        return $this->belongsTo(Business::class);
+    }
+
+    public function plan(): BelongsTo
+    {
+        return $this->belongsTo(SubscriptionPlan::class, 'subscription_plan_id');
+    }
+
+    public function isActive(): bool
+    {
+        return $this->status === 'active' && $this->end_date->isFuture();
+    }
+}

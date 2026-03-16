@@ -1,0 +1,47 @@
+# Nested / accidental
+git infolocal/
+
+# Laravel (src/)
+src/.env
+src/.env.backup
+src/.env.production
+src/vendor/
+src/node_modules/
+src/public/build/
+src/public/hot
+src/public/storage
+src/storage/*.key
+src/storage/pail
+src/storage/logs/*.log
+src/bootstrap/cache/*
+!src/bootstrap/cache/.gitignore
+src/.phpunit.result.cache
+src/.phpunit.cache/
+
+# Backups (κρατάμε την κεντρική database)
+backup*.sql
+*.sqlite-journal
+
+# IDE & editor
+.idea/
+.vscode/
+.fleet/
+.nova/
+.zed/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PHP / Composer
+src/auth.json
+src/.phpactor.json
+Homestead.json
+Homestead.yaml
+
+# Logs & temp
+*.log
+.cache/
