@@ -1,5 +1,11 @@
 # Deployment on Hostinger (shared hosting)
 
+## Git deployment (αυτόματο)
+
+- Το repo έχει τη **ρίζα** (root) εκτός του Laravel: το Laravel είναι στο φάκελο **`src/`**.
+- Στη ρίζα υπάρχουν **`composer.json`** και **`composer.lock`** ώστε το Hostinger να τα βρίσκει. Όταν τρέχει `composer install` στη ρίζα, τρέχει αυτόματα `composer install --no-dev --optimize-autoloader` μέσα στο **`src/`**.
+- **Υποχρεωτικά:** Στο Hostinger, ρύθμισε το **Document root** (ή «Domain root») να δείχνει στο **`src/public`** (όχι στη ρίζα του repo). Π.χ. αν το repo clone είναι στο `domains/example.com/public_html`, το document root να είναι `public_html/src/public`.
+
 ## PHP & Composer
 
 - **CLI PHP** on Hostinger is 8.2.30. The project is locked to PHP 8.2 via `composer.json` platform config and Symfony 7.x so that `composer install --no-dev --optimize-autoloader` works on production.

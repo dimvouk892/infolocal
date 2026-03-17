@@ -1,0 +1,17 @@
+{
+    "name": "infolocal/deploy-root",
+    "description": "Deployment root – runs Composer in src/",
+    "type": "project",
+    "require": {},
+    "scripts": {
+        "post-install-cmd": [
+            "@php -r \"if (is_dir('src') && file_exists('src/composer.json')) { chdir('src'); passthru('composer install --no-dev --optimize-autoloader', $err); exit($err); }\""
+        ],
+        "post-update-cmd": [
+            "@php -r \"if (is_dir('src') && file_exists('src/composer.json')) { chdir('src'); passthru('composer install --no-dev --optimize-autoloader', $err); exit($err); }\""
+        ]
+    },
+    "config": {
+        "allow-plugins": {}
+    }
+}
